@@ -11,6 +11,8 @@ Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 
+import './utils/request'
+
 new Vue({
   router,
   store,
