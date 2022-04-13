@@ -17,7 +17,11 @@ class HttpRequest {
     instance.interceptors.response.use(res => {
       if (res.status == 200) {
         // 服务器返回的结果都会放到data中
-        return Promise.resolve(res.data)
+        if (res.data.err === 0) { // 统一处理错误状态码
+          return Promise.resolve(res.data)
+        } else {
+          return Promise.reject(res.data.data)
+        }
       } else {
         return Promise.reject(res.data.data) // 我的后端实现的话，如果失败了会在返回的结果中增加一个data字段，失败的原因
       }
