@@ -30,7 +30,7 @@
           </template>
           <el-submenu index="profile" v-else>
             <template slot="title">{{userInfo.name}} </template>
-            <el-menu-item index="logout">退出登录</el-menu-item>
+            <el-menu-item index="logout" @click="logout">退出登录</el-menu-item>
           </el-submenu>
         </el-menu>
       </div>
@@ -40,11 +40,19 @@
 
 <script>
 import { createNamespacedHelpers } from 'vuex'
-let { mapState } = createNamespacedHelpers('user')
+let { mapState, mapActions } = createNamespacedHelpers('user')
+
+import * as types from '../store/action-types'
 
 export default {
   computed: {
     ...mapState(['hasPermission', 'userInfo'])
+  },
+  methods: {
+    ...mapActions([types.USER_LOGOUT]),
+    logout () {
+      this[types.USER_LOGOUT]()
+    }
   }
 }
 </script>

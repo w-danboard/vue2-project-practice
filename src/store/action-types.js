@@ -13,3 +13,6 @@ export const SET_PERMISSION = 'SET_PERMISSION'
 
 // 验证是否登录过
 export const USER_VALIDATE = 'USER_VALIDATE'
+
+// 用户退出登录
+export const USER_LOGOUT = 'USER_LOGOUT'
