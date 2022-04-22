@@ -10,6 +10,7 @@ specifiers:
   element-ui: ^2.15.6
   sass: ^1.26.5
   sass-loader: ^8.0.2
+  uuid: ^8.3.2
   vue: ^2.6.11
   vue-router: ^3.2.0
   vue-template-compiler: ^2.6.11
@@ -19,6 +20,7 @@ dependencies:
   axios: 0.26.1
   core-js: registry.npmmirror.com/core-js/3.21.1
   element-ui: 2.15.6_vue@2.6.14
+  uuid: 8.3.2
   vue: registry.npmmirror.com/vue/2.6.14
   vue-router: registry.npmmirror.com/vue-router/3.5.3
   vuex: registry.npmmirror.com/vuex/3.6.2_vue@2.6.14
@@ -304,6 +306,16 @@ packages:
     resolution: {integrity: sha512-XH8UiPCQcWNuk2LYePibW/4qL97+ZQ1AN3FNXwZRBNPPowo/NRU5fAlDCSNBJIYCKbioZfuYtMhG4quqoJhVzg==}
     engines: {node: '>=4'}
     dev: false
+
+  /uuid/3.4.0:
+    resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
+    deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+    hasBin: true
+    dev: true
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
 
   /vue-loader/16.8.3_webpack@4.46.0:
     resolution: {integrity: sha512-7vKN45IxsKxe5GcVCbc2qFU5aWzyiLrYJyUuMz4BQLKctCj/fmCa0w6fGiiQ2cLFetNcek1ppGJQDCup0c1hpA==}
@@ -8751,7 +8763,7 @@ packages:
       safe-buffer: registry.npmmirror.com/safe-buffer/5.2.1
       tough-cookie: registry.npmmirror.com/tough-cookie/2.5.0
       tunnel-agent: registry.npmmirror.com/tunnel-agent/0.6.0
-      uuid: registry.npmmirror.com/uuid/3.4.0
+      uuid: 3.4.0
     dev: true
 
   registry.npmmirror.com/require-directory/2.1.1:
@@ -9239,7 +9251,7 @@ packages:
     version: 0.3.24
     dependencies:
       faye-websocket: registry.npmmirror.com/faye-websocket/0.11.4
-      uuid: registry.npmmirror.com/uuid/8.3.2
+      uuid: 8.3.2
       websocket-driver: registry.npmmirror.com/websocket-driver/0.7.4
     dev: true
 
@@ -10160,21 +10172,6 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: true
 
-  registry.npmmirror.com/uuid/3.4.0:
-    resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/uuid/-/uuid-3.4.0.tgz}
-    name: uuid
-    version: 3.4.0
-    deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-    hasBin: true
-    dev: true
-
-  registry.npmmirror.com/uuid/8.3.2:
-    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/uuid/-/uuid-8.3.2.tgz}
-    name: uuid
-    version: 8.3.2
-    hasBin: true
-    dev: true
-
   registry.npmmirror.com/validate-npm-package-license/3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz}
     name: validate-npm-package-license
@@ -10428,7 +10425,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       ansi-colors: registry.npmmirror.com/ansi-colors/3.2.4
-      uuid: registry.npmmirror.com/uuid/3.4.0
+      uuid: 3.4.0
     dev: true
 
   registry.npmmirror.com/webpack-merge/4.2.2:
