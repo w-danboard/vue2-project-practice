@@ -12,6 +12,8 @@ export default {
       state.userInfo = userInfo
       if (userInfo && userInfo.token) {
         setLocal('token', userInfo.token)
+      } else {
+        localStorage.clear('token')
       }
     },
     [types.SET_PERMISSION] (state, has) {
@@ -19,13 +21,26 @@ export default {
     }
   },
   actions: {
-    async [types.USER_LOGIN]({ commit }, payload) {
+    async [types.USER_LOGIN] ({ commit }, payload) {
       try {
         let result = await user.login(payload)
         commit(types.SET_USER, result.data)
         commit(types.SET_PERMISSION, true)
       } catch (e) {
         return Promise.reject(e)
+      }
+    },
+    async [types.USER_VALIDATE] ({ commit }) {
+      // 如果没有token 就不用发请求了 肯定没有登录
+      if (!getLocal('token')) return false
+      try {
+        let result = await user.validate()
+        commit(types.SET_USER, result.data)
+        commit(types.SET_PERMISSION, true)
+        return true
+      } catch (e) {
+        commit(types.SET_USER, {})
+        commit(types.SET_PERMISSION, false)
       }
     }
   }

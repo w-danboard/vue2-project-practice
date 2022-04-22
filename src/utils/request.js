@@ -1,7 +1,7 @@
 // 我们要将axios 二次封装
 import axios from 'axios'
 import config from '@/config'
-
+import { getLocal } from '@/utils/local'
 class HttpRequest {
   constructor () {
     // 可以增加实例属性 后台接口的路径开发模式和生产模式不一样
@@ -10,7 +10,8 @@ class HttpRequest {
   }
   setInterceptors (instance) {
     instance.interceptors.request.use(config => {
-      // 一般增加token属性
+      // 一般增加token属性 jwt
+      config.headers.authorization = 'Bearer ' +  getLocal('token')
       return config
     })
 

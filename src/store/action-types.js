@@ -10,3 +10,6 @@ export const SET_USER = 'SET_USER'
 
 // 设置已经获取权限了
 export const SET_PERMISSION = 'SET_PERMISSION'
+
+// 验证是否登录过
+export const USER_VALIDATE = 'USER_VALIDATE'

@@ -20,14 +20,16 @@
           background-color="#333"
           text-color="#fff"
           active-text-color="#fff">
-          <el-menu-item index="login">
-            <router-link to="/login">登录</router-link>
-          </el-menu-item>
-          <el-menu-item index="reg">
-            <router-link to="/reg">注册</router-link>
-          </el-menu-item>
-          <el-submenu index="profile">
-            <template slot="title">大脑袋人 </template>
+          <template v-if="!hasPermission">
+            <el-menu-item index="login">
+              <router-link to="/login">登录</router-link>
+            </el-menu-item>
+            <el-menu-item index="reg">
+              <router-link to="/reg">注册</router-link>
+            </el-menu-item>
+          </template>
+          <el-submenu index="profile" v-else>
+            <template slot="title">{{userInfo.name}} </template>
             <el-menu-item index="logout">退出登录</el-menu-item>
           </el-submenu>
         </el-menu>
@@ -35,6 +37,18 @@
     </el-col>
   </el-row>
 </template>
+
+<script>
+import { createNamespacedHelpers } from 'vuex'
+let { mapState } = createNamespacedHelpers('user')
+
+export default {
+  computed: {
+    ...mapState(['hasPermission', 'userInfo'])
+  }
+}
+</script>
+
 
 <style lang="scss">
 .header-row {
