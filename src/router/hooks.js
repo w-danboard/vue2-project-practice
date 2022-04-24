@@ -3,7 +3,7 @@ import * as types from '../store/action-types'
 
 // 登录权限校验
 const loginPermission = async function (to, from, next) {
-  let r = store.dispatch(`user/${types.USER_VALIDATE}`)
+  let r = await store.dispatch(`user/${types.USER_VALIDATE}`)
   
   // 根据meta来判断是否登录
   let needLogin = to.matched.some(item => item.meta.needLogin)
@@ -37,7 +37,7 @@ export const menuPermission = async function (to, from, next) {
     // 添加路由 这里需要判断是否添加过路由了
     if (!store.state.user.menuPermission) {
       // 添加好了
-      store.dispatch(`user/${types.ADD_ROUTE}`)
+      await store.dispatch(`user/${types.ADD_ROUTE}`)
       // 内部用的就是replaceState
       next({ ...to, replace: true }) // 进入到页面时 是404
     } else {

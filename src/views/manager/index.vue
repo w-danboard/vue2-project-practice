@@ -1,3 +1,6 @@
 <template>
-  <div>manager</div>
+  <div>
+    manager
+    <router-view/>
+  </div>
 </template>
