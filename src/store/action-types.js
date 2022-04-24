@@ -22,3 +22,6 @@ export const SET_MENU_PERMISSION = 'SET_MENU_PERMISSION'
 
 // 添加路由动作
 export const ADD_ROUTE = 'ADD_ROUTE'
+
+// websocket
+export const CREATE_WEBSOCKET = 'CREATE_WEBSOCKET'

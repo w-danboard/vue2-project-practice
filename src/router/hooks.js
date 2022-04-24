@@ -48,7 +48,18 @@ export const menuPermission = async function (to, from, next) {
   }
 }
 
+export const createWebSocket =  async function (to, from, next) {
+  // 如果登录了，但是没有创建websocket
+  if (store.state.user.hasPermission && !store.state.ws) {
+    await store.dispatch(`${types.CREATE_WEBSOCKET}`)
+    next()
+  } else {
+    next()
+  }
+}
+
 export default {
   loginPermission,
-  menuPermission
+  menuPermission,
+  createWebSocket
 }
