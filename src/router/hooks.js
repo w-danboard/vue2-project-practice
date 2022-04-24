@@ -31,8 +31,24 @@ const loginPermission = async function (to, from, next) {
   next()
 }
 
-// 菜单权限校验
+// 路由权限动态添加
+export const menuPermission = async function (to, from, next) {
+  if (store.state.user.hasPermission) {
+    // 添加路由 这里需要判断是否添加过路由了
+    if (!store.state.user.menuPermission) {
+      // 添加好了
+      store.dispatch(`user/${types.ADD_ROUTE}`)
+      // 内部用的就是replaceState
+      next({ ...to, replace: true }) // 进入到页面时 是404
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+}
 
 export default {
-  loginPermission
+  loginPermission,
+  menuPermission
 }

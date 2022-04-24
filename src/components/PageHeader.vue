@@ -6,10 +6,13 @@
         mode="horizontal"
         background-color="#333"
         text-color="#fff"
-        active-text-color="#fff"
-        :router="true">
-        <el-menu-item index="/">首页</el-menu-item>
-        <el-menu-item index="post">发表文章</el-menu-item>
+        active-text-color="#fff">
+        <el-menu-item index="/">
+          <router-link to="/">首页</router-link>
+        </el-menu-item>
+        <el-menu-item index="article">
+          <router-link to="/article">发表文章</router-link>
+        </el-menu-item>
       </el-menu>
     </el-col>
     <el-col :span="6">
@@ -77,6 +80,11 @@ export default {
       a {
         color: #fff;
       }
+    }
+  }
+  .el-menu-item {
+    a {
+      display: block;
     }
   }
 }

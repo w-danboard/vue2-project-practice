@@ -16,3 +16,9 @@ export const USER_VALIDATE = 'USER_VALIDATE'
 
 // 用户退出登录
 export const USER_LOGOUT = 'USER_LOGOUT'
+
+// 设置路由权限
+export const SET_MENU_PERMISSION = 'SET_MENU_PERMISSION'
+
+// 添加路由动作
+export const ADD_ROUTE = 'ADD_ROUTE'
